@@ -1,0 +1,102 @@
+[
+  {
+    "id": "ed25a30b-d334-4ff6-907f-483ca5cb442c",
+    "name": "Fund 1 Capital",
+    "description": "A specialized fund focused on technology investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "a424fb66-94a7-4681-b9a8-349a3e3437b4",
+    "name": "Fund 2 Capital",
+    "description": "A specialized fund focused on real estate investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "b9f410ea-0419-4cff-a196-5829c3c8a25c",
+    "name": "Fund 3 Capital",
+    "description": "A specialized fund focused on renewable energy investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "97a139c7-f954-404e-a750-28f1b7ca8d9b",
+    "name": "Fund 4 Capital",
+    "description": "A specialized fund focused on biotechnology investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "212b2484-2604-4e32-80fb-91db0c490e48",
+    "name": "Fund 5 Capital",
+    "description": "A specialized fund focused on AI & automation investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "7fdc4a8c-72b9-44fe-b7ba-e967fadc1eac",
+    "name": "Fund 6 Capital",
+    "description": "A specialized fund focused on emerging markets investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "62e3cab7-b6ff-4409-9f06-f28f7a007fa0",
+    "name": "Fund 7 Capital",
+    "description": "A specialized fund focused on healthcare innovation investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "61565ccc-a255-4c9f-b7bc-8713d61dc8e4",
+    "name": "Fund 8 Capital",
+    "description": "A specialized fund focused on global infrastructure investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "dce39d54-71a9-493e-9205-cf43db8825b6",
+    "name": "Fund 9 Capital",
+    "description": "A specialized fund focused on blockchain technology investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "3908fd9a-ab98-4c9d-a5bb-bd0bd6cbbdcf",
+    "name": "Fund 10 Capital",
+    "description": "A specialized fund focused on consumer goods investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "b7cdaaa3-71f6-4364-962c-a76d6715c698",
+    "name": "Fund 11 Capital",
+    "description": "A specialized fund focused on cybersecurity investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "d865faa2-d2ea-40bf-a957-581c37062b83",
+    "name": "Fund 12 Capital",
+    "description": "A specialized fund focused on agribusiness investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "414ed8f2-3652-41fc-aadd-ba61773c4ec4",
+    "name": "Fund 13 Capital",
+    "description": "A specialized fund focused on space exploration investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "cb1d4493-1831-4d1d-bf70-1564613952c9",
+    "name": "Fund 14 Capital",
+    "description": "A specialized fund focused on e-commerce investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "249f8c03-e255-4908-be27-faa219c74581",
+    "name": "Fund 15 Capital",
+    "description": "A specialized fund focused on financial technology investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "65661a41-4f3b-4783-85a9-e936ff2ba5d3",
+    "name": "Fund 16 Capital",
+    "description": "A specialized fund focused on transportation & logistics investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "a58a4e1d-f6cf-498d-af47-71cfaff9a13e",
+    "name": "Fund 17 Capital",
+    "description": "A specialized fund focused on entertainment & media investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "ba2849e9-9e30-444c-ae7e-1b0c2bc69ffd",
+    "name": "Fund 18 Capital",
+    "description": "A specialized fund focused on telecommunications investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "b495a536-b685-4f36-934e-d73d0026a38d",
+    "name": "Fund 19 Capital",
+    "description": "A specialized fund focused on manufacturing advancements investments, ensuring steady growth and stability."
+  },
+  {
+    "id": "1199688d-59ea-4d41-a629-678286536c12",
+    "name": "Fund 20 Capital",
+    "description": "A specialized fund focused on education technology investments, ensuring steady growth and stability."
+  }
+]

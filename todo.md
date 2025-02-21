@@ -18,9 +18,9 @@
 
 ## Step 3: Load and Serve Funds
 
-- [ ] Load `funds.json` into memory at startup
-- [ ] Implement `GET /api/v1/funds` to return funds
-- [ ] Write tests for fund retrieval
+- [x] Load `funds.json` into memory at startup
+- [x] Implement `GET /api/v1/funds` to return funds
+- [x] Write tests for fund retrieval
 
 ## Step 4: Create Investments
 

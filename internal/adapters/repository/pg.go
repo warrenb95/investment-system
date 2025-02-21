@@ -1,15 +1,18 @@
 package repository
 
 import (
+	"embed"
 	"fmt"
+	"net/http"
 
 	"github.com/go-pg/migrations/v8"
 	"github.com/go-pg/pg/v10"
-	"github.com/sirupsen/logrus"
-
-	_ "github.com/golang-migrate/migrate/v4/source/file"
 	_ "github.com/lib/pq" // Required for PostgreSQL
+	"github.com/sirupsen/logrus"
 )
+
+//go:embed migrations/*.sql
+var pgMigrations embed.FS
 
 // PostgresRepository struct for database interactions
 type PostgresRepository struct {
@@ -26,8 +29,9 @@ func NewPostgresRepository(db *pg.DB, logger *logrus.Logger) (*PostgresRepositor
 func (r *PostgresRepository) runMigrations() error {
 	// run migrations
 	collection := migrations.NewCollection()
-	err := collection.DiscoverSQLMigrations("migrations")
+	err := collection.DiscoverSQLMigrationsFromFilesystem(http.FS(pgMigrations), "migrations")
 	if err != nil {
+		r.logger.WithError(err).Error("migration discovery")
 		return err
 	}
 
@@ -36,12 +40,6 @@ func (r *PostgresRepository) runMigrations() error {
 	if err != nil {
 		r.logger.WithError(err).Error("Starting PostgreSQL migrations")
 		return fmt.Errorf("starting PostgreSQL migrations: %w", err)
-	}
-
-	_, _, err = collection.Run(r.db, "reset")
-	if err != nil {
-		r.logger.WithError(err).Error("Reseting PostgreSQL migrations")
-		return fmt.Errorf("reseting PostgreSQL migrations: %w", err)
 	}
 
 	oldVersion, newVersion, err := collection.Run(r.db, "up")
