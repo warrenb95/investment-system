@@ -30,15 +30,15 @@ This document provides a detailed specification for implementing an ISA investme
 
 #### 1. **Funds Management**
 
-- `GET /api/v1/funds` - Returns all available funds loaded from `funds.json`.
+- `GET /api/v1/retail/funds` - Returns all available funds loaded from `funds.json`.
 
 #### 2. **ISA Investments**
 
-- `POST /api/v1/isa-investments/:customer_id`
+- `POST /api/v1/retail/isa-investments/:customer_id`
   - Allows investing in multiple funds at once.
   - Updates existing investments by summing amounts if the same fund is reinvested in.
   - Requires at least one fund selection.
-- `GET /api/v1/isa-investments/:customer_id`
+- `GET /api/v1/retail/isa-investments/:customer_id`
   - Returns all investments for a given customer, including timestamps and total invested.
 
 #### 3. **Health Check**

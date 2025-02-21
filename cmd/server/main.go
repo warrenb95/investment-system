@@ -16,21 +16,35 @@ import (
 )
 
 // Database connection setup
-func connectDB() *pg.DB {
+func connectDB(logger *logrus.Logger) *pg.DB {
+	user := os.Getenv("DB_USER")
+	if user == "" {
+		logger.Fatal("empty DB_USER env var")
+	}
+	pass := os.Getenv("DB_PASS")
+	if pass == "" {
+		logger.Fatal("empty DB_PASS env var")
+	}
+	database := os.Getenv("DB_NAME")
+	if database == "" {
+		logger.Fatal("empty DB_NAME env var")
+	}
+
 	opts := &pg.Options{
-		Addr:     "localhost:5432",
-		User:     "postgres",
-		Password: "password",
-		Database: "railway_db",
+		Addr:     "postgres:5432",
+		User:     user,
+		Password: pass,
+		Database: database,
 	}
 	return pg.Connect(opts)
 }
 
 func main() {
-	db := connectDB()
-	defer db.Close()
 	logger := logrus.New()
 	logger.SetFormatter(new(logrus.JSONFormatter))
+
+	db := connectDB(logger)
+	defer db.Close()
 
 	_, err := repository.NewPostgresRepository(db, logger)
 	if err != nil {
@@ -54,6 +68,10 @@ func main() {
 	}))
 	e.Use(middleware.Recover())
 	e.Use(middleware.CORS())
+
+	e.GET("/api/v1/health", func(c echo.Context) error {
+		return c.JSON(http.StatusOK, map[string]string{"status": "healthy"})
+	})
 
 	// Graceful shutdown
 	go func() {
