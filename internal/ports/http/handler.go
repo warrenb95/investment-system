@@ -8,4 +8,5 @@ import (
 
 type InvestmentsService interface {
 	ListFunds(ctx context.Context) ([]models.Fund, error)
+	Invest(ctx context.Context, customerID string, investments ...*models.Investment) error
 }

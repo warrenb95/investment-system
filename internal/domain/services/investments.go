@@ -6,14 +6,16 @@ import (
 	"fmt"
 	"io"
 
+	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 	"github.com/warrenb95/investment-system/internal/domain/models"
 	"github.com/warrenb95/investment-system/internal/ports/repository"
 )
 
 type InvestmentsService struct {
-	logger    *logrus.Logger
-	fundStore repository.FundStore
+	logger          *logrus.Logger
+	fundStore       repository.FundStore
+	investmentStore repository.InvestmentStore
 }
 
 func NewInvestmentsService(logger *logrus.Logger, fundStore repository.FundStore) *InvestmentsService {
@@ -53,4 +55,18 @@ func (s *InvestmentsService) ListFunds(ctx context.Context) ([]models.Fund, erro
 	// Can add business logic here if needed...
 
 	return s.fundStore.ListFunds(ctx)
+}
+
+func (s *InvestmentsService) Invest(ctx context.Context, customerID string, investments ...*models.Investment) error {
+	if len(investments) == 0 {
+		s.logger.Error("no investments in invest request")
+		return models.ErrEmptyInvestments
+	}
+
+	for _, i := range investments {
+		i.ID = uuid.NewString()
+		i.CustomerID = customerID
+	}
+
+	return s.investmentStore.CreateInvestment(ctx, customerID, investments...)
 }

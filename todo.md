@@ -20,13 +20,14 @@
 
 - [x] Load `funds.json` into memory at startup
 - [x] Implement `GET /api/v1/funds` to return funds
-- [x] Write tests for fund retrieval
+- [x] Write repository tests for fund retrieval
+- [ ] Write http tests for fund retrieval
 
 ## Step 4: Create Investments
 
-- [ ] Define investment request struct with validation
+- [x] Define investment request struct with validation
 - [ ] Implement `POST /api/v1/isa-investments/:customer_id`
-- [ ] Use transactions to ensure atomicity
+- [x] Use transactions to ensure atomicity
 - [ ] Implement per-customer locking (`FOR UPDATE`)
 - [ ] Write unit and integration tests
 

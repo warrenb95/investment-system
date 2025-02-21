@@ -10,3 +10,7 @@ type FundStore interface {
 	CreateFund(ctx context.Context, fund *models.Fund) error
 	ListFunds(ctx context.Context) ([]models.Fund, error)
 }
+
+type InvestmentStore interface {
+	CreateInvestment(ctx context.Context, customerID string, investments ...*models.Investment) error
+}

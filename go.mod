@@ -5,6 +5,7 @@ go 1.23.5
 require (
 	github.com/go-pg/migrations/v8 v8.1.0
 	github.com/go-pg/pg/v10 v10.14.0
+	github.com/google/uuid v1.6.0
 	github.com/labstack/echo/v4 v4.13.3
 	github.com/lib/pq v1.10.9
 	github.com/ory/dockertest/v3 v3.11.0
