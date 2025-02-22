@@ -37,3 +37,19 @@ func Invest(s ports.InvestmentsService) echo.HandlerFunc {
 		return c.JSON(http.StatusOK, map[string]any{"message": "Investments successfully made."})
 	}
 }
+
+func ListInvestments(s ports.InvestmentsService) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		customerID := c.Param("customer_id")
+		if customerID == "" {
+			return c.JSON(http.StatusBadRequest, map[string]string{"error": "Invalid request", "details": "customer_id is missing"})
+		}
+
+		investments, err := s.ListInvestments(c.Request().Context(), customerID)
+		if err != nil {
+			return c.JSON(http.StatusInternalServerError, map[string]string{"error": "failed to list investments"})
+		}
+
+		return c.JSON(http.StatusOK, map[string]any{"investments": investments})
+	}
+}

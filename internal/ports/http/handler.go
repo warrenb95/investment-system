@@ -7,6 +7,12 @@ import (
 )
 
 type InvestmentsService interface {
-	ListFunds(ctx context.Context) ([]models.Fund, error)
+	ListFunds(ctx context.Context) ([]*models.Fund, error)
+
 	Invest(ctx context.Context, customerID string, investments ...*models.Investment) error
+	ListInvestments(ctx context.Context, customerID string) ([]*models.Investment, error)
+}
+
+type CustomerService interface {
+	CreateCustomer(ctx context.Context) (customerID string, err error)
 }

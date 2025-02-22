@@ -32,7 +32,15 @@ This document provides a detailed specification for implementing an ISA investme
 
 - `GET /api/v1/retail/funds` - Returns all available funds loaded from `funds.json`.
 
-#### 2. **ISA Investments**
+### 2. Customers
+
+- `POST /api/v1/retail/customers`
+  - Create a customer if doesn't exist yet.
+  - Return the customer ID.
+- `GET /api/v1/retail/customers`
+  - Returns all customers.
+
+#### 3. **ISA Investments**
 
 - `POST /api/v1/retail/isa-investments/:customer_id`
   - Allows investing in multiple funds at once.
@@ -41,7 +49,7 @@ This document provides a detailed specification for implementing an ISA investme
 - `GET /api/v1/retail/isa-investments/:customer_id`
   - Returns all investments for a given customer, including timestamps and total invested.
 
-#### 3. **Health Check**
+#### 4. **Health Check**
 
 - `GET /api/v1/health` - Checks database connectivity and app readiness.
 

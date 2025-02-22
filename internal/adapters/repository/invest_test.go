@@ -63,10 +63,16 @@ func TestInvest(t *testing.T) {
 				require.NoError(t, err, "creating fund")
 			}
 
+			err := testDB.CreateCustomer(context.Background(), &models.Customer{ID: test.customerID})
+			require.NoError(t, err, "creating customer")
+
+			err = testDB.Invest(context.Background(), test.customerID, test.investReq...)
+			require.NoError(t, err, "investing")
+
 			listResp, err := testDB.ListInvestments(context.Background(), test.customerID)
 			require.NoError(t, err, "listing funds")
 
-			assert.ElementsMatch(t, test.storedFunds, listResp, "list response")
+			assert.ElementsMatch(t, test.investReq, listResp, "list response")
 		})
 	}
 }

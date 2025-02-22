@@ -58,7 +58,7 @@ func main() {
 		logger.WithError(err).Fatal("creating new repository")
 	}
 
-	s := services.NewInvestmentsService(logger, pgStore)
+	s := services.NewInvestmentsService(logger, pgStore, pgStore, pgStore)
 	err = s.LoadFunds(context.Background(), bytes.NewReader(fundsJSON))
 	if err != nil {
 		logger.WithError(err).Fatal("loading funds from funds json")
@@ -81,6 +81,11 @@ func main() {
 	}))
 
 	e.GET("/api/v1/retail/funds", httpadapter.ListFunds(s))
+
+	e.POST("/api/v1/retail/customers", httpadapter.CreateCustomer(s))
+
+	e.POST("/api/v1/retail/isa-investments/:customer_id", httpadapter.Invest(s))
+	e.GET("/api/v1/retail/isa-investments/:customer_id", httpadapter.ListInvestments(s))
 
 	e.GET("/api/v1/health", func(c echo.Context) error {
 		return c.JSON(http.StatusOK, map[string]string{"status": "healthy"})

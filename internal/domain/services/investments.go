@@ -16,12 +16,20 @@ type InvestmentsService struct {
 	logger          *logrus.Logger
 	fundStore       repository.FundStore
 	investmentStore repository.InvestmentStore
+	customerStore   repository.CustomerStore
 }
 
-func NewInvestmentsService(logger *logrus.Logger, fundStore repository.FundStore) *InvestmentsService {
+func NewInvestmentsService(
+	logger *logrus.Logger,
+	fundStore repository.FundStore,
+	investmentsStore repository.InvestmentStore,
+	customerStore repository.CustomerStore,
+) *InvestmentsService {
 	return &InvestmentsService{
-		logger:    logger,
-		fundStore: fundStore,
+		logger:          logger,
+		fundStore:       fundStore,
+		investmentStore: investmentsStore,
+		customerStore:   customerStore,
 	}
 }
 
@@ -51,7 +59,7 @@ func (s *InvestmentsService) LoadFunds(ctx context.Context, reader io.Reader) er
 	return nil
 }
 
-func (s *InvestmentsService) ListFunds(ctx context.Context) ([]models.Fund, error) {
+func (s *InvestmentsService) ListFunds(ctx context.Context) ([]*models.Fund, error) {
 	// Can add business logic here if needed...
 
 	return s.fundStore.ListFunds(ctx)
@@ -68,5 +76,11 @@ func (s *InvestmentsService) Invest(ctx context.Context, customerID string, inve
 		i.CustomerID = customerID
 	}
 
-	return s.investmentStore.CreateInvestment(ctx, customerID, investments...)
+	return s.investmentStore.Invest(ctx, customerID, investments...)
+}
+
+func (s *InvestmentsService) ListInvestments(ctx context.Context, customerID string) ([]*models.Investment, error) {
+	// Can add business logic here if needed...
+
+	return s.investmentStore.ListInvestments(ctx, customerID)
 }

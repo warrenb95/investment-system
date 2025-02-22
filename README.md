@@ -63,7 +63,41 @@ docker-compose up --build
 ]
 ```
 
-### 2. Create Investments
+### 2. Create Customer
+
+**Endpoint**: `POST /api/v1/retail/customers`
+
+**Description**: Creates a customer.
+
+**Response**:
+
+```json
+{
+  "id": "uuid",
+},
+```
+
+### 3. List Customers
+
+> [!WARNING]
+> TODO: not implemented yet.
+
+**Endpoint**: `GET /api/v1/retail/customers`
+
+**Description**: Lists all customers.
+
+**Response**:
+
+```json
+[
+  {
+    "id": "uuid",
+  },
+  ...
+]
+```
+
+### 4. Create Investments
 
 **Endpoint**: `POST /api/v1/retail/isa-investments/:customer_id`
 
@@ -95,7 +129,7 @@ docker-compose up --build
 }
 ```
 
-### 3. Get Customer Investments
+### 5. Get Customer Investments
 
 **Endpoint**: `GET /api/v1/retail/isa-investments/:customer_id`
 
@@ -114,7 +148,7 @@ docker-compose up --build
 ]
 ```
 
-### 4. Health Check
+### 6. Health Check
 
 **Endpoint**: `GET /api/v1/health`
 

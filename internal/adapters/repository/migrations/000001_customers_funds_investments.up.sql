@@ -8,7 +8,7 @@ CREATE TABLE funds (
     description TEXT NOT NULL
 );
 
-CREATE TABLE isa_investments (
+CREATE TABLE investments (
     id UUID PRIMARY KEY,
     customer_id UUID REFERENCES customers(id) ON DELETE CASCADE,
     fund_id UUID REFERENCES funds(id) ON DELETE CASCADE,

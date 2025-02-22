@@ -20,8 +20,8 @@ func (r *PostgresRepository) CreateFund(ctx context.Context, fund *models.Fund) 
 	})
 }
 
-func (r *PostgresRepository) ListFunds(ctx context.Context) ([]models.Fund, error) {
-	var funds []models.Fund
+func (r *PostgresRepository) ListFunds(ctx context.Context) ([]*models.Fund, error) {
+	var funds []*models.Fund
 	err := r.db.Model(&funds).Select()
 	if err != nil {
 		r.logger.WithContext(ctx).WithError(err).Error("listing funds from pg store")
