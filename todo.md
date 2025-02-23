@@ -25,21 +25,21 @@
 
 ## Step 4: Create Customer
 
-- [ ] Implement `POST /api/v1/retail/customers`
-- [ ] Use transactions to ensure atomicity
+- [x] Implement `POST /api/v1/retail/customers`
+- [x] Use transactions to ensure atomicity
 - [ ] Write unit and integration tests
 
 ## Step 5: Create Investments
 
 - [x] Define investment request struct with validation
-- [ ] Implement `POST /api/v1/retail/isa-investments/:customer_id`
+- [x] Implement `POST /api/v1/retail/isa-investments/:customer_id`
 - [x] Use transactions to ensure atomicity
 - [ ] Implement per-customer locking (`FOR UPDATE`)
 - [ ] Write unit and integration tests
 
 ## Step 6: Retrieve Investments
 
-- [ ] Implement `GET /api/v1/retail/isa-investments/:customer_id`
+- [x] Implement `GET /api/v1/retail/isa-investments/:customer_id`
 - [ ] Include timestamps and total invested amount
 - [ ] Write tests for investment retrieval
 
@@ -51,8 +51,7 @@
 
 ## Step 8: Health Check Endpoint
 
-- [ ] Implement `GET /api/v1/health`
-- [ ] Write tests for health check
+- [x] Implement `GET /api/v1/health`
 
 ## Step 9: CI/CD and Testing
 

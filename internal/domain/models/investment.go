@@ -15,7 +15,7 @@ type Customer struct {
 type Investment struct {
 	ID         string
 	CustomerID string
-	FundID     string
-	Amount     float64
+	FundID     string  `json:"fund_id"`
+	Amount     float64 `json:"amount"`
 	CreatedAt  time.Time
 }

@@ -10,8 +10,8 @@ import (
 	ports "github.com/warrenb95/investment-system/internal/ports/http"
 )
 
-type investRequest struct {
-	Investments []*models.Investment
+type InvestmentsRequest struct {
+	Investments []models.Investment `json:"investments"`
 }
 
 func Invest(s ports.InvestmentsService) echo.HandlerFunc {
@@ -21,7 +21,7 @@ func Invest(s ports.InvestmentsService) echo.HandlerFunc {
 			return c.JSON(http.StatusBadRequest, map[string]string{"error": "Invalid request", "details": "customer_id is missing"})
 		}
 
-		var req investRequest
+		var req InvestmentsRequest
 		if err := c.Bind(&req); err != nil {
 			return c.JSON(http.StatusBadRequest, map[string]string{"error": "Invalid request payload", "details": err.Error()})
 		}

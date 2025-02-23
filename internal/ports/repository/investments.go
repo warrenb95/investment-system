@@ -12,7 +12,7 @@ type FundStore interface {
 }
 
 type InvestmentStore interface {
-	Invest(ctx context.Context, customerID string, investments ...*models.Investment) error
+	Invest(ctx context.Context, customerID string, investments ...models.Investment) error
 	ListInvestments(ctx context.Context, customerID string) ([]*models.Investment, error)
 }
 

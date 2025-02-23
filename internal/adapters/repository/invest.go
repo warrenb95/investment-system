@@ -8,7 +8,7 @@ import (
 	"github.com/warrenb95/investment-system/internal/domain/models"
 )
 
-func (r *PostgresRepository) Invest(ctx context.Context, customerID string, investments ...*models.Investment) error {
+func (r *PostgresRepository) Invest(ctx context.Context, customerID string, investments ...models.Investment) error {
 	return r.db.RunInTransaction(ctx, func(tx *pg.Tx) error {
 		_, err := r.db.Model(&investments).Insert()
 		if err != nil {

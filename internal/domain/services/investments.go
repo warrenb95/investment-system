@@ -65,15 +65,16 @@ func (s *InvestmentsService) ListFunds(ctx context.Context) ([]*models.Fund, err
 	return s.fundStore.ListFunds(ctx)
 }
 
-func (s *InvestmentsService) Invest(ctx context.Context, customerID string, investments ...*models.Investment) error {
+func (s *InvestmentsService) Invest(ctx context.Context, customerID string, investments ...models.Investment) error {
 	if len(investments) == 0 {
 		s.logger.Error("no investments in invest request")
 		return models.ErrEmptyInvestments
 	}
 
-	for _, i := range investments {
-		i.ID = uuid.NewString()
-		i.CustomerID = customerID
+	for i, investment := range investments {
+		investment.ID = uuid.NewString()
+		investment.CustomerID = customerID
+		investments[i] = investment
 	}
 
 	return s.investmentStore.Invest(ctx, customerID, investments...)

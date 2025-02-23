@@ -15,7 +15,7 @@ func TestInvest(t *testing.T) {
 		storedFunds []models.Fund
 
 		customerID string
-		investReq  []*models.Investment
+		investReq  []models.Investment
 	}{
 		"successfully store single investment": {
 			storedFunds: []models.Fund{
@@ -23,7 +23,7 @@ func TestInvest(t *testing.T) {
 			},
 
 			customerID: "5eb8608c-b092-4f2b-8a71-763522e0240f",
-			investReq: []*models.Investment{
+			investReq: []models.Investment{
 				{
 					ID:         "4f148b45-596a-4dcb-a096-60f91e7cad6e",
 					CustomerID: "5eb8608c-b092-4f2b-8a71-763522e0240f",
@@ -39,7 +39,7 @@ func TestInvest(t *testing.T) {
 			},
 
 			customerID: "5eb8608c-b092-4f2b-8a71-763522e0240f",
-			investReq: []*models.Investment{
+			investReq: []models.Investment{
 				{
 					ID:         "2c8d8f27-76d4-4e0c-bb64-803d2aca842d",
 					CustomerID: "5eb8608c-b092-4f2b-8a71-763522e0240f",
